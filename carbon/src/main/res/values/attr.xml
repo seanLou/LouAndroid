@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <declare-styleable name="CustomAttributes">
+        <!-- 浮动按钮显示时是否必须以动画做为开场-->
+        <attr name="animate" format="boolean" />
+        <!-- 波纹动画颜色 -->
+        <attr name="rippleColor" format="color|reference" />
+        <!-- 波纹动画速度 -->
+        <attr name="rippleSpeed" format="float" />
+    </declare-styleable>
+</resources>
