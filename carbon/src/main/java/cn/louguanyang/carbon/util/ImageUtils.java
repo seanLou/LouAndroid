@@ -8,10 +8,24 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import android.util.Log;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPostHC4;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.entity.mime.content.FileBody;
+import org.apache.http.entity.mime.content.StringBody;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Map;
 import java.util.UUID;
 
@@ -19,19 +33,19 @@ import java.util.UUID;
  * Created by LouGuanyang on 2015/9/8.
  */
 public class ImageUtils {
-    private final static int DEFAULT_IMG_QUILTY = 80;
-    private final static int DEFAULT_IMG_INSAPLESIZE = 2;
+    private final static int DEFAULT_IMG_QUALITY = 80;
+    private final static int DEFAULT_IN_SAMPLE_SIZE = 2;
     private static final String TAG = ImageUtils.class.getSimpleName();
-    private static final String DIR_NAME = "azure_image";
+    private static final String DIR_NAME = "image";
     private static String IMAGE_FORMAT = ".png";
     private String path;
 
-    public static String getFileBasePath() {
+    private static String getFileBasePath() {
         return Environment.getExternalStorageDirectory() + File.separator + DIR_NAME + File.separator;
     }
 
     public static void createFileBasePath() {
-//        Log.e(TAG, ("FileBasePath:[" + DateUtils.getNowTimeString() + "]" + ImageUtils.getFileBasePath()));
+        Log.e(TAG, ("[" + DateUtils.nowTimestamp() + "] FileBasePath:" + ImageUtils.getFileBasePath()));
         File file = new File(ImageUtils.getFileBasePath());
         if (!file.exists()) {
             file.mkdirs();
@@ -40,11 +54,11 @@ public class ImageUtils {
 
     public static String getPNGImagePath() {
         String imagePath = getFileBasePath() + UUID.randomUUID().toString() + IMAGE_FORMAT;
-//        Log.d(TAG, "imagePath:[" + DateUtils.getNowTimeString() + "]" + imagePath);
+        Log.d(TAG, "[" + DateUtils.nowTimestamp() + "] imagePath:" + imagePath);
         return imagePath;
     }
 
-    public static String getCompressTargetPath(String srcPath) {
+    private static String getCompressTargetPath(@NonNull String srcPath) {
         try {
             String[] split = srcPath.split(".");
             return split[0] + "-compress" + IMAGE_FORMAT;
@@ -58,7 +72,7 @@ public class ImageUtils {
      *
      * @param sourcePath 待压缩图片的路径
      */
-    public static void compressAndCoverImage(String sourcePath) {
+    public static void compressAndCoverImage(@NonNull String sourcePath) {
         compressedIamge(sourcePath, null);
     }
 
@@ -93,12 +107,12 @@ public class ImageUtils {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inJustDecodeBounds = true;
             BitmapFactory.decodeFile(srcPath, options);
-            options.inSampleSize = DEFAULT_IMG_INSAPLESIZE;
+            options.inSampleSize = DEFAULT_IN_SAMPLE_SIZE;
             options.inJustDecodeBounds = false;
             Bitmap bitmap = BitmapFactory.decodeFile(srcPath, options);
             File file = new File(targetPath);
             FileOutputStream fos = new FileOutputStream(file);
-            bitmap.compress(Bitmap.CompressFormat.JPEG, DEFAULT_IMG_QUILTY, fos);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, DEFAULT_IMG_QUALITY, fos);
             fos.flush();
             fos.close();
         } catch (Exception e) {
@@ -117,38 +131,38 @@ public class ImageUtils {
     public static String uploadImage(String targetUrl, String imagePath, Map<String,String> param) {
         String responseString = "";
         //FIXME:改用okhttp
-//        CloseableHttpClient httpClient = HttpClients.createDefault();
-//        try {
-//            HttpPostHC4 httpPost = new HttpPostHC4(targetUrl);
-//            File sourceFile = new File(imagePath);
-//            FileBody fileBody = new FileBody(sourceFile);
-//            MultipartEntityBuilder builder = MultipartEntityBuilder.create();
-//            builder.addPart("image", fileBody);
-//            for (Map.Entry<String, String> entry : param.entrySet()) {
-//                builder.addPart(entry.getKey(), new StringBody(entry.getValue(), ContentType.TEXT_PLAIN));
-//            }
-//            httpPost.setEntity(builder.build());
-//            CloseableHttpResponse response = httpClient.execute(httpPost);
-//            try {
-//                HttpEntity responseEntity = response.getEntity();
-//                int statusCode = response.getStatusLine().getStatusCode();
-//                if (statusCode == 200) {
-//                    responseString = EntityUtils.toString(responseEntity);
-//                } else {
-//                    responseString = "Error occurred! Http Status Code: " + statusCode;
-//                }
-//            } finally {
-//                response.close();
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } finally {
-//            try {
-//                httpClient.close();
-//            } catch (IOException e) {
-//                responseString = e.toString();
-//            }
-//        }
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        try {
+            HttpPostHC4 httpPost = new HttpPostHC4(targetUrl);
+            File sourceFile = new File(imagePath);
+            FileBody fileBody = new FileBody(sourceFile);
+            MultipartEntityBuilder builder = MultipartEntityBuilder.create();
+            builder.addPart("image", fileBody);
+            for (Map.Entry<String, String> entry : param.entrySet()) {
+                builder.addPart(entry.getKey(), new StringBody(entry.getValue(), ContentType.TEXT_PLAIN));
+            }
+            httpPost.setEntity(builder.build());
+            CloseableHttpResponse response = httpClient.execute(httpPost);
+            try {
+                HttpEntity responseEntity = response.getEntity();
+                int statusCode = response.getStatusLine().getStatusCode();
+                if (statusCode == 200) {
+                    responseString = EntityUtils.toString(responseEntity);
+                } else {
+                    responseString = "Error occurred! Http Status Code: " + statusCode;
+                }
+            } finally {
+                response.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                httpClient.close();
+            } catch (IOException e) {
+                responseString = e.toString();
+            }
+        }
         return responseString;
     }
 

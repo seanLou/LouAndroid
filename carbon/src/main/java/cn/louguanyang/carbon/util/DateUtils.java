@@ -26,18 +26,18 @@ public class DateUtils {
      * 当前的时间戳
      */
     @CheckResult
-    public static Timestamp getNowTimestamp() {
+    public static Timestamp nowTimestamp() {
         return new Timestamp(System.currentTimeMillis());
     }
 
     @CheckResult
-    public static String getNowTime() {
-        return format(getNowTimestamp(), DATE_PATTERN_LONG);
+    public static String nowTime() {
+        return format(nowTimestamp(), DATE_PATTERN_LONG);
     }
 
     @CheckResult
     public static String today() {
-        return format(getNowTimestamp(), DATE_PATTERN_DEFAULT);
+        return format(nowTimestamp(), DATE_PATTERN_DEFAULT);
     }
 
     /**
