@@ -1,8 +1,12 @@
 *.iml
 .gradle
 /local.properties
-/.idea/workspace.xml
-/.idea/libraries
 .DS_Store
 /build
 /captures
+.idea/runConfigurations.xml
+app/libs/
+app/src/main/res/drawable/
+smsreceiver/libs/
+smsreceiver/src/main/res/drawable/
+.idea
