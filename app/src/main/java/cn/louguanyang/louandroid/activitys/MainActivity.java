@@ -65,7 +65,6 @@ public class MainActivity extends Activity implements IMainView {
     }
 
 
-
     private void findView() {
         customViewLayout = (RippleLayout) findViewById(R.id.itemCustomView);
         weatherLayout = (RippleLayout) findViewById(R.id.itemWeather);
@@ -80,13 +79,13 @@ public class MainActivity extends Activity implements IMainView {
 
     @Override
     public void startUploadImageActivity() {
-        Intent intent = new Intent(getApplicationContext(),UploadImageActivity.class);
+        Intent intent = new Intent(getApplicationContext(), UploadImageActivity.class);
         startActivity(intent);
     }
 
     @Override
     public void startJuheActivity() {
-        Intent intent = new Intent(getApplicationContext(),JuheActivity.class);
+        Intent intent = new Intent(getApplicationContext(), JuheActivity.class);
         startActivity(intent);
     }
 
@@ -102,8 +101,8 @@ public class MainActivity extends Activity implements IMainView {
             @Override
             public void run() {
                 View v = layoutRipple.getChildAt(0);
-                layoutRipple.setxRippleOrigin(ViewHelper.getX(v)+v.getWidth()/2);
-                layoutRipple.setyRippleOrigin(ViewHelper.getY(v)+v.getHeight()/2);
+                layoutRipple.setxRippleOrigin(ViewHelper.getX(v) + v.getWidth() / 2);
+                layoutRipple.setyRippleOrigin(ViewHelper.getY(v) + v.getHeight() / 2);
                 layoutRipple.setRippleColor(Color.parseColor("#1E88E5"));
                 layoutRipple.setRippleSpeed(30f);
             }

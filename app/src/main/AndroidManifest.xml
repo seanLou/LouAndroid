@@ -34,9 +34,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activitys.CustomActivity"
-            android:label="@string/title_activity_custom" />
-        <activity
             android:name=".activitys.UploadImageActivity"
             android:label="@string/title_activity_upload_image" />
         <activity
