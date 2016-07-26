@@ -81,8 +81,9 @@ public class ProgressDialog {
     }
 
     public void cancel() {
-        if (dialog != null)
+        if (dialog != null) {
             dialog.cancel();
+        }
     }
 }
 

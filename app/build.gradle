@@ -1,8 +1,24 @@
 apply plugin: 'com.android.application'
+apply plugin: 'bugly'
+apply plugin: 'android-apt'
+def AAVersion = '3.0.1'
 
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
+
+    dataBinding {
+        enabled = true
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
     defaultConfig {
         applicationId "cn.louguanyang.louandroid"
         minSdkVersion 15
@@ -22,10 +38,25 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:23.4.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha1'
     testCompile 'junit:junit:4.12'
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
     androidTestCompile 'com.android.support.test:runner:0.5'
     androidTestCompile 'com.android.support:support-annotations:23.4.0'
     compile project(':carbon')
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha4'
+    compile 'com.tencent.bugly:crashreport:1.2.8'
+    compile "org.androidannotations:androidannotations-api:$AAVersion"
+    apt "org.androidannotations:androidannotations:$AAVersion"
+}
+
+bugly {
+    appId = '900016470'    //注册时分配的App ID
+    appKey = 'HncubkQ2BSysJnG7'  //注册时分配的App Key
+}
+
+apt {
+    arguments {
+        androidManifestFile variant.outputs[0].processResources.manifestFile
+        resourcePackageName "cn.louguanyang.louandroid"
+    }
 }

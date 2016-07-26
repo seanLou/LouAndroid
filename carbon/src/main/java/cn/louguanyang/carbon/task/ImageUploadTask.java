@@ -45,6 +45,7 @@ public class ImageUploadTask extends AsyncTask<String, Integer, String> {
 
     @Override
     protected String doInBackground(String... params) {
+        //FIXME: 优化上传 图片
         String requestURL = params[0];
         String imagePath = params[1];
         String owenrId = params[2];
@@ -69,8 +70,8 @@ public class ImageUploadTask extends AsyncTask<String, Integer, String> {
 //            if ("0".equals(code)) {
 //                Message msg = handler.obtainMessage();
 //                String jsonObject = JSONObject.parseObject(result).getJSONObject("data").getString("imageResult");
-////                ContractImg contractImg = JSON.parseObject(jsonObject, ContractImg.class);
-////                msg.obj = contractImg;
+//                ContractImg contractImg = JSON.parseObject(jsonObject, ContractImg.class);
+//                msg.obj = contractImg;
 //                String imgUrl = "http://aliyuntstest1.oss.aliyuncs.com/123.jpg";
 //                msg.obj = imgUrl;
 //                handler.sendMessage(msg);
@@ -78,7 +79,8 @@ public class ImageUploadTask extends AsyncTask<String, Integer, String> {
 //                Toast.makeText(context, "网络异常", Toast.LENGTH_LONG).show();
 //            }
 //        } catch (Exception e) {
-            Toast.makeText(context, "Result:" + result, Toast.LENGTH_LONG).show();
+//            Toast.makeText(context, "error:" , Toast.LENGTH_LONG).show();
 //        }
+        Toast.makeText(context, "Result:" + result, Toast.LENGTH_LONG).show();
     }
 }

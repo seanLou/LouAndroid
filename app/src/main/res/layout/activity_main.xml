@@ -1,19 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:lou="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="cn.louguanyang.louandroid.MainActivity">
+    tools:context="cn.louguanyang.louandroid.activitys.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="@+id/activity_main"
-        app:layout_constraintLeft_toLeftOf="@+id/activity_main"
-        app:layout_constraintRight_toRightOf="@+id/activity_main"
-        app:layout_constraintTop_toTopOf="@+id/activity_main" />
+        android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:background="#0fc5f2">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="DEMO"
+                android:textColor="#ffffff"
+                android:textSize="30sp" />
+        </RelativeLayout>
+
+        <cn.louguanyang.carbon.view.RippleLayout
+            android:id="@+id/itemCustomView"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#ffffffff"
+            android:clickable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="——————自定义控件——————" />
+        </cn.louguanyang.carbon.view.RippleLayout>
+
+        <cn.louguanyang.carbon.view.RippleLayout
+            android:id="@+id/itemWeather"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#ffffffff"
+            android:clickable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="——————聚合数据Demo——————" />
+        </cn.louguanyang.carbon.view.RippleLayout>
+
+        <cn.louguanyang.carbon.view.RippleLayout
+            android:id="@+id/itemUploadImage"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#ffffffff"
+            android:clickable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="——————上传图片——————" />
+        </cn.louguanyang.carbon.view.RippleLayout>
+    </LinearLayout>
+</ScrollView>

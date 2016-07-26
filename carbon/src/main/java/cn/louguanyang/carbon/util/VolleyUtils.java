@@ -46,7 +46,7 @@ public class VolleyUtils {
         addToRequestQueueWithTAG(requestQueue, request, null);
     }
 
-    public static <T> void addToRequestQueueWithTAG(RequestQueue requestQueue, Request<T> request,@Nullable String tag) {
+    public static <T> void addToRequestQueueWithTAG(RequestQueue requestQueue, Request<T> request, @Nullable String tag) {
         if (StringUtils.isEmpty(tag)) {
             request.setTag(DEFAULT_TAG);
         } else {
@@ -55,7 +55,7 @@ public class VolleyUtils {
         requestQueue.add(request);
     }
 
-    public static void cancelPendingRequest(@NonNull RequestQueue requestQueue,@Nullable Object tag) {
+    public static void cancelPendingRequest(@NonNull RequestQueue requestQueue, @Nullable Object tag) {
         if (tag == null) {
             requestQueue.cancelAll(DEFAULT_TAG);
         } else {

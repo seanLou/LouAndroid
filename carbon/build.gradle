@@ -35,4 +35,5 @@ dependencies {
         exclude module: "httpclient"
     }
     compile 'com.alibaba:fastjson:1.1.52.android'
+    compile 'com.nineoldandroids:library:2.4.0'
 }

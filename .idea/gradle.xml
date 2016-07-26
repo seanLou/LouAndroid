@@ -10,6 +10,10 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/carbon" />
+            <option value="$PROJECT_DIR$/gesturepassword" />
+            <option value="$PROJECT_DIR$/imageupload" />
+            <option value="$PROJECT_DIR$/largeimageview" />
+            <option value="$PROJECT_DIR$/smsreceiver" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

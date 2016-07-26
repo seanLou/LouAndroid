@@ -19,7 +19,6 @@ import static cn.louguanyang.carbon.spec.Constans.DEFAULT_INT_VALUE;
 public class RippleLayout extends BaseView {
     public final static float DEFAULT_RIPPLE_SIZE = 20f;
 
-
     int background;
     float rippleSpeed = DEFAULT_RIPPLE_SIZE;
     int rippleSize = 3;

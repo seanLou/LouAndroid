@@ -1,6 +1,7 @@
 package cn.louguanyang.carbon.util;
 
 import android.support.annotation.CheckResult;
+import android.support.annotation.NonNull;
 
 import static cn.louguanyang.carbon.spec.Constans.ZERO;
 
@@ -13,12 +14,12 @@ public class StringUtils {
     }
 
     @CheckResult
-    public static boolean isBlank(String str) {
+    public static boolean isBlank(@NonNull String str) {
         return (str == null || str.trim().length() == ZERO);
     }
 
     @CheckResult
-    public static boolean isEmpty(CharSequence str) {
+    public static boolean isEmpty(@NonNull CharSequence str) {
         return (str == null || str.length() == ZERO);
     }
 
@@ -29,7 +30,7 @@ public class StringUtils {
      * @return
      */
     @CheckResult
-    public static String toHexString(int value) {
+    public static String toHexString(@NonNull int value) {
         return Integer.toHexString(value);
     }
 }

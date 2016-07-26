@@ -7,7 +7,7 @@ import android.os.Parcelable;
  * Created by louguanyang on 16/5/31.
  */
 
-public class DateParseException extends Exception implements Parcelable {
+public class DateParseException extends RuntimeException implements Parcelable {
 
     @Override
     public int describeContents() {

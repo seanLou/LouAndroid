@@ -7,7 +7,7 @@ import android.os.Parcelable;
  * Created by louguanyang on 16/5/31.
  */
 
-public class DateStringNullException extends Exception implements Parcelable {
+public class DateStringNullException extends RuntimeException implements Parcelable {
 
     @Override
     public int describeContents() {

@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -38,14 +39,13 @@ public class ImageUtils {
     private static final String TAG = ImageUtils.class.getSimpleName();
     private static final String DIR_NAME = "image";
     private static String IMAGE_FORMAT = ".png";
-    private String path;
 
     private static String getFileBasePath() {
         return Environment.getExternalStorageDirectory() + File.separator + DIR_NAME + File.separator;
     }
 
     public static void createFileBasePath() {
-        Log.e(TAG, ("[" + DateUtils.nowTimestamp() + "] FileBasePath:" + ImageUtils.getFileBasePath()));
+        Log.d(TAG, ("[" + DateUtils.nowTimestamp() + "] FileBasePath:" + ImageUtils.getFileBasePath()));
         File file = new File(ImageUtils.getFileBasePath());
         if (!file.exists()) {
             file.mkdirs();
@@ -82,7 +82,7 @@ public class ImageUtils {
      * @param sourcePath 待压缩图片的路径
      * @return 压缩后图片的路径
      */
-    public static String cpmpressAndNewImage(String sourcePath) {
+    public static String cpmpressAndNewImage(@NonNull String sourcePath) {
         try {
             String targetPath = ImageUtils.getCompressTargetPath(sourcePath);
             compressedIamge(sourcePath, targetPath);
@@ -99,7 +99,7 @@ public class ImageUtils {
      * @param srcPath
      * @param targetPath
      */
-    private static void compressedIamge(String srcPath, String targetPath) {
+    private static void compressedIamge(@NonNull String srcPath, @Nullable String targetPath) {
         try {
             if (TextUtils.isEmpty(targetPath)) {
                 targetPath = srcPath;

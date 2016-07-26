@@ -1,1 +1,1 @@
-include ':app', ':carbon'
+include ':app', ':carbon', ':imageupload', ':gesturepassword', ':largeimageview', ':smsreceiver'

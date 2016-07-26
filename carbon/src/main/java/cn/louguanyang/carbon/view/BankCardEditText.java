@@ -9,7 +9,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 
 /**
- * Created by LouGuanyang on 2015/9/18.
+ * Created by louguanyang on 2015/9/18.
  */
 public class BankCardEditText extends EditText {
     private static final int DEFAULT_INTERVAL = 4;
