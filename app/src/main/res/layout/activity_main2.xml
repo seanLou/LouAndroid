@@ -26,17 +26,18 @@
             tools:text = "6222 2222 9999 8888 888"
             android:hint="请输入银行卡号"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@color/btn_bg"
-            android:onClick="showBankCardNumber"
-            android:text="查看银行卡号"
-            android:padding="5dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textColor="@color/white" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/btn_bg"
+                android:onClick="showBankCardNumber"
+                android:text="查看银行卡号"
+                android:padding="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/white" />
         </LinearLayout>
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -44,7 +45,8 @@
             android:background="@color/btn_bg"
             android:onClick="getVerifyCode"
             android:text="Verify_CODE"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:id="@+id/button" />
 
         <LinearLayout
             android:layout_width="match_parent"

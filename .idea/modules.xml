@@ -5,10 +5,10 @@
       <module fileurl="file://$PROJECT_DIR$/LouAndroid.iml" filepath="$PROJECT_DIR$/LouAndroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/carbon/carbon.iml" filepath="$PROJECT_DIR$/carbon/carbon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/catchuuid/catchuuid.iml" filepath="$PROJECT_DIR$/catchuuid/catchuuid.iml" />
       <module fileurl="file://$PROJECT_DIR$/gesturepassword/gesturepassword.iml" filepath="$PROJECT_DIR$/gesturepassword/gesturepassword.iml" />
       <module fileurl="file://$PROJECT_DIR$/imageupload/imageupload.iml" filepath="$PROJECT_DIR$/imageupload/imageupload.iml" />
       <module fileurl="file://$PROJECT_DIR$/largeimageview/largeimageview.iml" filepath="$PROJECT_DIR$/largeimageview/largeimageview.iml" />
-      <module fileurl="file://$PROJECT_DIR$/smsreceiver/smsreceiver.iml" filepath="$PROJECT_DIR$/smsreceiver/smsreceiver.iml" />
     </modules>
   </component>
 </project>

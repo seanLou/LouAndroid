@@ -7,7 +7,7 @@ import android.os.Handler;
  * Created by louguanyang on 16/1/13.
  */
 public interface IUploadImageBiz {
-    boolean cheackCamera(Context context);
+    boolean checkCamera(Context context);
 
     void createFileBasePath();
 

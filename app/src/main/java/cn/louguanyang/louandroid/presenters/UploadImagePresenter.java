@@ -33,7 +33,7 @@ public class UploadImagePresenter {
      * @param context
      */
     public void checkCameraAndCreateDir(Context context) {
-        if (uploadImageBiz.cheackCamera(context)) {
+        if (uploadImageBiz.checkCamera(context)) {
             uploadImageBiz.createFileBasePath();
         } else {
             mImageUploadView.showToastMsg(context.getString(R.string.no_camera_error_toast));

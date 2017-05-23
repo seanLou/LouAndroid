@@ -1,1 +1,1 @@
-include ':app', ':carbon', ':imageupload', ':gesturepassword', ':largeimageview', ':smsreceiver'
+include ':app', ':carbon', ':imageupload', ':gesturepassword', ':largeimageview', ':catchuuid'

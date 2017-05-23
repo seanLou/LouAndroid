@@ -18,7 +18,7 @@ public class UploadImageBizImpl implements IUploadImageBiz {
     public final static String UPLOAD_IMAGE_URL = BASE_REQUEST_URL + "upload-image";
 
     @Override
-    public boolean cheackCamera(Context context) {
+    public boolean checkCamera(Context context) {
         return context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA);
     }
 

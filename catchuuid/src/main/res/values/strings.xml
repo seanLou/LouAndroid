@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CatchUUID</string>
+    <string name="uuid">uuid</string>
+</resources>

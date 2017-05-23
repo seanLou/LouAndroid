@@ -10,19 +10,15 @@ import android.widget.Toast;
 
 import com.nineoldandroids.view.ViewHelper;
 
-import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.Fullscreen;
-import org.androidannotations.annotations.WindowFeature;
-
 import cn.louguanyang.carbon.view.RippleLayout;
 import cn.louguanyang.louandroid.R;
 import cn.louguanyang.louandroid.presenters.MainPresenter;
 import cn.louguanyang.louandroid.views.IMainView;
 
 
-@WindowFeature(Window.FEATURE_NO_TITLE)
-@Fullscreen
-@EActivity(R.layout.activity_main)
+//@WindowFeature(Window.FEATURE_NO_TITLE)
+//@Fullscreen
+//@EActivity(R.layout.activity_main)
 public class MainActivity extends Activity implements IMainView {
 
     private RippleLayout customViewLayout;
@@ -104,7 +100,7 @@ public class MainActivity extends Activity implements IMainView {
                 layoutRipple.setxRippleOrigin(ViewHelper.getX(v) + v.getWidth() / 2);
                 layoutRipple.setyRippleOrigin(ViewHelper.getY(v) + v.getHeight() / 2);
                 layoutRipple.setRippleColor(Color.parseColor("#1E88E5"));
-                layoutRipple.setRippleSpeed(30f);
+                layoutRipple.setRippleSpeed(60f);
             }
         });
     }

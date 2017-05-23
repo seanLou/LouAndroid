@@ -8,7 +8,9 @@ import android.widget.TextView;
 import cn.louguanyang.carbon.util.PreferencesUtils;
 import cn.louguanyang.louandroid.R;
 
-
+//@WindowFeature(Window.FEATURE_NO_TITLE)
+//@Fullscreen
+//@EActivity(R.layout.activity_juhe)
 public class JuheActivity extends Activity {
 
     private String[] resultStr = {"city", "PM2.5", "AQI", "quality", "PM10", "CO", "NO2", "O3", "SO2", "time"};

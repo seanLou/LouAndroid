@@ -23,7 +23,7 @@ public class LouApplication extends Application {
         mInstance = this;
     }
 
-    private LouApplication() {}
+    public LouApplication() {}
 
     public static synchronized LouApplication getInstance() {
         return mInstance;
